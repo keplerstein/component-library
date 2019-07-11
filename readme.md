@@ -20,7 +20,7 @@ The goal is this repository is an npm installable library. Included in the defau
 To add this library to a project, install it by the private Github URL
 
 ```
-yarn add git+ssh://git@github.com:keplerstein/component-library.git#1.0.0
+yarn add git+ssh://git@github.com:keplerstein/component-library.git#1.0.3
 ```
 
 Make sure your SSH key is added to Github, and Yarn knows about it. (run cli command ssh-add)

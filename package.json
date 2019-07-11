@@ -19,5 +19,8 @@
     "bugs": {
         "url": "https://github.com/keplerstein/keplerstein-component-library/issues"
     },
-    "homepage": "https://github.com/keplerstein/keplerstein-component-library#readme"
+    "homepage": "https://github.com/keplerstein/keplerstein-component-library#readme",
+    "dependencies": {
+        "normalize-scss": "^7.0.1"
+    }
 }

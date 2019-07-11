@@ -1,2 +1,4 @@
+@import "normalize-scss/sass/_normalize.scss";
+@include normalize();
 @import "base-styles/reset.scss";
 @import "base-styles/breakpoints.scss";
