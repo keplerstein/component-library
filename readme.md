@@ -27,6 +27,7 @@ A bit of sample code for the grid
 
 ## Components
 * [Menu - Maister style retracting menu](./menu-retracting)
+* [Sample button](./sample-button)
 * Menu - some other menu
 
 <a name="coding-guidelines"/>
