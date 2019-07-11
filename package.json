@@ -1,5 +1,5 @@
 {
-    "name": "component-library",
+    "name": "keplerstein-component-library",
     "version": "1.0.0",
     "description": "Reusable components used in the Keplerstein website projects.",
     "main": "index.js",
@@ -12,12 +12,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/keplerstein/component-library.git"
+        "url": "git+https://github.com/keplerstein/keplerstein-component-library.git"
     },
     "author": "Keplerstein",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/keplerstein/component-library/issues"
+        "url": "https://github.com/keplerstein/keplerstein-component-library/issues"
     },
-    "homepage": "https://github.com/keplerstein/component-library#readme"
+    "homepage": "https://github.com/keplerstein/keplerstein-component-library#readme"
 }
