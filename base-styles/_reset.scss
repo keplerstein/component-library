@@ -15,13 +15,7 @@
 // html
 
 html {
-    @include font-smoothing($font-smoothing);
     box-sizing: border-box;
-    font-size: add-unit(($font-size / 16), em);
-    font-family: $font-stack;
-    line-height: ($line-height / $font-size);
-    color: $font-color;
-    text-rendering: optimizeLegibility;
 }
 
 // Media
