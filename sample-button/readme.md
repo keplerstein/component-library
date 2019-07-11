@@ -11,7 +11,7 @@ import menu from "kelperstein/sample-button";
 Import the SCSS for the component:
 
 ```scss
-@import "keplerstein/sample-button";
+@import "../../node_modules/component-library/sample-button/index.scss";
 ```
 
 Use this twig snippet in your templates:
