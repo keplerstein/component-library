@@ -1,7 +1,3 @@
-/**
- * Reset
- */
-
 // Box-sizing
 
 * {
@@ -26,7 +22,8 @@ iframe,
 img,
 svg,
 video {
-    vertical-align: middle;
+    // we mostly want to display them as block level elements anyway, right? We don't want any nasty spacing issues.
+    display: block;
 }
 
 // Spacing and borders
@@ -81,43 +78,4 @@ button {
     background: transparent;
     border: 0;
     padding: 0;
-}
-
-// Button fix (Firefox/IE)
-
-button:focus {
-    outline: 1px dotted;
-    outline: 5px auto -webkit-focus-ring-color;
-}
-
-// Help cursor
-
-abbr[title],
-dfn[title] {
-    cursor: help;
-}
-
-// Underlines
-
-u,
-ins {
-    text-decoration: underline;
-}
-
-// Alt
-
-img {
-    font-style: italic;
-}
-
-// Selection
-
-::selection {
-    //@todo Add default colors for selection.
-}
-
-// Tab index
-
-[tabindex="-1"]:focus {
-    outline: none !important;
 }
