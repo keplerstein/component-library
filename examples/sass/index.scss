@@ -1,0 +1,16 @@
+@import "../../base";
+
+@import "../../button/index";
+body {
+    padding: 20px;
+}
+.row {
+    margin: 20px;
+}
+
+.button {
+    @include button();
+}
+.button2 {
+    @include button($backgroundColor: orange, $hoverBackgroundColor: red, $padding: 10px 50px);
+}

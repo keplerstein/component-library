@@ -38,6 +38,7 @@ A bit of sample code for the grid
 <a name="components"/>
 
 ## Components
+* [Button](./button)
 * [Menu - Maister style retracting menu](./menu-retracting)
 * [Sample button](./sample-button)
 * Menu - some other menu
