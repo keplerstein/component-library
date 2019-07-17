@@ -1,16 +1,44 @@
 @import "../../base";
-
 @import "../../button/index";
 body {
     padding: 20px;
 }
-.row {
-    margin: 20px;
+
+.buttons {
+    .row {
+        margin-bottom: 20px;
+    }
+    
+    .button {
+        @include button();
+    }
+    
+    .button2 {
+        @include button($backgroundColor: orange, $hoverBackgroundColor: red, $padding: 10px 50px);
+    }
 }
 
-.button {
-    @include button();
-}
-.button2 {
-    @include button($backgroundColor: orange, $hoverBackgroundColor: red, $padding: 10px 50px);
+.breakpoints {
+    background-color: yellow; // Mobile
+    
+    @include for-tablet-portrait-up {
+        background-color: orange;
+    }
+
+    @include for-tablet-landscape-up {
+        background-color: orangered;
+    }
+
+    @include for-desktop-up {
+        background-color: red;
+    }
+
+    @include for-medium-desktop-up {
+        background-color: purple;
+    }
+
+    @include for-big-desktop-up {
+        background-color: blue;
+    }
+
 }
