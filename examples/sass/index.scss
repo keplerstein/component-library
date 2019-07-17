@@ -8,19 +8,25 @@ body {
     .row {
         margin-bottom: 20px;
     }
-    
+
     .button {
         @include button();
     }
-    
+
     .button2 {
-        @include button($backgroundColor: orange, $hoverBackgroundColor: red, $padding: 10px 50px);
+        @include button(
+            $color: purlple,
+            $hoverColor: palevioletred,
+            $backgroundColor: orange,
+            $hoverBackgroundColor: red,
+            $padding: 10px 50px
+        );
     }
 }
 
 .breakpoints {
     background-color: yellow; // Mobile
-    
+
     @include for-tablet-portrait-up {
         background-color: orange;
     }
@@ -40,5 +46,4 @@ body {
     @include for-big-desktop-up {
         background-color: blue;
     }
-
 }

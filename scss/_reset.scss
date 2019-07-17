@@ -1,4 +1,7 @@
-// Box-sizing
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
 
 * {
     &,
@@ -6,15 +9,8 @@
     &:after {
         box-sizing: inherit;
     }
+    font-family: sans-serif;
 }
-
-// html
-
-html {
-    box-sizing: border-box;
-}
-
-// Media
 
 audio,
 canvas,
@@ -25,8 +21,6 @@ video {
     // we mostly want to display them as block level elements anyway, right? We don't want any nasty spacing issues.
     display: block;
 }
-
-// Spacing and borders
 
 blockquote,
 dl,
@@ -78,4 +72,12 @@ button {
     background: transparent;
     border: 0;
     padding: 0;
+}
+
+main {
+    ul {
+        li {
+            // ...
+        }
+    }
 }

@@ -2,14 +2,20 @@
     $backgroundColor: #999,
     $color: white,
     $hoverBackgroundColor: null,
-    $padding: 10px 20px
+    $hoverColor: null,
+    $padding: 10px 20px // fontSize,
 ) {
     &:hover {
+        // background
         @if $hoverBackgroundColor {
             background-color: $hoverBackgroundColor;
         }
         @if not $hoverBackgroundColor {
             background-color: darken($backgroundColor, 20%);
+        }
+        // color
+        @if $hoverColor {
+            color: $hoverColor;
         }
     }
     cursor: pointer;
@@ -21,7 +27,7 @@
     padding: $padding;
     text-decoration: none;
     user-select: none;
-    transition: background-color 0.15s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     svg {
         display: block;
         width: 20px;
