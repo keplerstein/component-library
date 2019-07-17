@@ -4,24 +4,22 @@ body {
     padding: 20px;
 }
 
-.buttons {
-    .row {
-        margin-bottom: 20px;
-    }
+.row {
+    margin-bottom: 20px;
+}
 
-    .button {
-        @include button();
-    }
+.button {
+    @include button();
+}
 
-    .button2 {
-        @include button(
-            $color: purlple,
-            $hoverColor: palevioletred,
-            $backgroundColor: orange,
-            $hoverBackgroundColor: red,
-            $padding: 10px 50px
-        );
-    }
+.button2 {
+    @include button(
+        $color: purlple,
+        $hoverColor: palevioletred,
+        $backgroundColor: orange,
+        $hoverBackgroundColor: red,
+        $padding: 10px 50px
+    );
 }
 
 .breakpoints {
