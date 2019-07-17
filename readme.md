@@ -6,17 +6,16 @@ The goal is this repository is an npm installable library. Included in the defau
 
 - [Reusable components for Keplerstein](#Reusable-components-for-Keplerstein)
   - [Installation](#Installation)
-  - [Grid system](#Grid-system)
+  - [Base styles](#Base-styles)
   - [Components](#Components)
   - [Coding guidelines](#Coding-guidelines)
-
 
 ## Installation
 
 To add this library to a project, install it by the private Github URL
 
 ```
-yarn add git+ssh://git@github.com:keplerstein/keplerstein-component-library.git#1.0.3
+yarn add git+ssh://git@github.com:keplerstein/keplerstein-component-library.git
 ```
 
 Make sure the domain github.com is added to the list of your well known hosts. Just 'ssh github.com' and answer yes to save it automatically.
@@ -24,25 +23,20 @@ Make sure the domain github.com is added to the list of your well known hosts. J
 
 Make sure your SSH key is added to Github, and Yarn knows about it. (run cli command ssh-add)
 
-<a name="grid-system"/>
+## Base styles
 
-## Grid system
+Every project starts with some base styles applied (normalize-scss, reset, breakpoints etc.)
 
-Blabla some explanation about the grid system. 
+[More info]('./docs/base-styles')
 
+```scss
+@import "keplerstein-component-library/scss/base";
 ```
-A bit of sample code for the grid
-```
-
-<a name="components"/>
 
 ## Components
-* [Button](./button)
-* [Menu - Maister style retracting menu](./menu-retracting)
-* [Sample button](./sample-button)
+* [Button](./docs/button)
+* [Etc....](./xxxx)
 * Menu - some other menu
-
-<a name="coding-guidelines"/>
 
 ## Coding guidelines
 

@@ -1,23 +1,14 @@
-@import "../../scss/base";
-@import "../../scss/button";
-body {
-    padding: 20px;
-}
+# Base styles
 
-.buttons {
-    .row {
-        margin-bottom: 20px;
-    }
-    
-    .button {
-        @include button();
-    }
-    
-    .button2 {
-        @include button($backgroundColor: orange, $hoverBackgroundColor: red, $padding: 10px 50px);
-    }
-}
+## Reset & normalization
 
+Blabla.
+
+## Breakpoints
+
+We provide a couple of mobile-first media queries. The sample below shows them all.
+
+```scss
 .breakpoints {
     background-color: yellow; // Mobile
     
@@ -42,3 +33,4 @@ body {
     }
 
 }
+```
