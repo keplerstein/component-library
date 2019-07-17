@@ -35,8 +35,7 @@ Every project starts with some base styles applied (normalize-scss, reset, break
 
 ## Components
 * [Button](./docs/button)
-* [Etc....](./xxxx)
-* Menu - some other menu
+* [Padding container](./docs/padding-container)
 
 ## Coding guidelines
 
