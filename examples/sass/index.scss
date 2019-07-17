@@ -1,12 +1,16 @@
 @import "../../scss/base";
 @import "../../scss/button";
 @import "../../scss/lists";
+@import "../../scss/container";
 body {
     padding: 20px;
 }
 
-.row {
-    margin-bottom: 20px;
+.buttons {
+    padding: 20px;
+    .row {
+        margin-bottom: 20px;
+    }
 }
 
 h1 {
@@ -61,4 +65,30 @@ h1 {
         $marginLeft: 30,
         $marginBottom: 20px
     );
+}
+
+.container-row {
+    @include containerRow();
+    .column {
+        background: palegoldenrod;
+        @include containerColumn();
+    }
+    .breakout {
+        background: palegreen;
+        @include containerColumnBreakoutLeft();
+    }
+    .rest {
+        background: green;
+        @include containerColumnRight();
+    }
+
+    .breakout-right {
+        background: paleturquoise;
+        @include containerColumnBreakoutRight();
+    }
+
+    .rest-left {
+        background: palevioletred;
+        @include containerColumnLeft();
+    }
 }

@@ -1,0 +1,60 @@
+@import "breakpoints";
+
+@mixin containerRow($maxWidth: 1600px, $gutterMobile: 20px, $gutterMedium: 20px, $gutterBig: 40px) {
+    padding-left: $gutterMobile;
+    padding-right: $gutterMobile;
+    $w: $maxWidth / 2;
+    @include for-tablet-portrait-up {
+        padding-left: 0;
+        padding-right: 0;
+        display: grid;
+        position: relative;
+        grid-template-columns:
+            minmax($gutterMedium, 1fr)
+            minmax(0, $w)
+            minmax(0, $w)
+            minmax($gutterMedium, 1fr);
+    }
+    @include for-tablet-landscape-up {
+        grid-template-columns:
+            minmax($gutterBig, 1fr)
+            minmax(0, $w)
+            minmax(0, $w)
+            minmax($gutterBig, 1fr);
+    }
+}
+
+@mixin containerColumn() {
+    @include for-tablet-portrait-up {
+        grid-column: 2 / span 2;
+        grid-row: 1;
+    }
+}
+@mixin containerColumnRight() {
+    grid-column: 3 / span 1;
+    grid-row: 1;
+}
+@mixin containerColumnLeft() {
+    grid-column: 2 / span 1;
+    grid-row: 1;
+}
+@mixin containerColumnBreakoutLeft($gutterMobile: 20px) {
+    margin-left: -$gutterMobile;
+    margin-right: -$gutterMobile;
+    @include for-tablet-portrait-up {
+        margin-left: 0;
+        margin-right: 0;
+        grid-column: 1 / span 2;
+        grid-row: 1;
+    }
+}
+@mixin containerColumnBreakoutRight($gutterMobile: 20px) {
+    margin-left: -$gutterMobile;
+    margin-right: -$gutterMobile;
+    @include for-tablet-portrait-up {
+        margin-left: 0;
+        margin-right: 0;
+        grid-column: 3 / span 2;
+        grid-row: 1;
+    }
+}
