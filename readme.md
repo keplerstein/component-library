@@ -4,10 +4,6 @@ Reusable components used in the Keplerstein website projects.
 
 The goal is this repository is an npm installable library. Included in the default Craft CMS install, but can be updated anytime by a simple npm install.
 
-<a href="https://npmjs.com/package/react-table" target="\_parent">
-  <img alt="" src="https://img.shields.io/npm/dm/react-table.svg" />
-</a>
-
 - [Reusable components for Keplerstein](#Reusable-components-for-Keplerstein)
   - [Installation](#Installation)
   - [Grid system](#Grid-system)
