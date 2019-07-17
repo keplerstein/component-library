@@ -20,8 +20,11 @@ The goal is this repository is an npm installable library. Included in the defau
 To add this library to a project, install it by the private Github URL
 
 ```
-yarn add git+ssh://git@github.com:keplerstein/component-library.git#1.0.3
+yarn add git+ssh://git@github.com:keplerstein/keplerstein-component-library.git#1.0.3
 ```
+
+Make sure the domain github.com is added to the list of your well known hosts. Just 'ssh github.com' and answer yes to save it automatically.
+[More info](https://stackoverflow.com/questions/13363553/git-error-host-key-verification-failed-when-connecting-to-remote-repository)
 
 Make sure your SSH key is added to Github, and Yarn knows about it. (run cli command ssh-add)
 
