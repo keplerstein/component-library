@@ -72,30 +72,3 @@ button {
     border: 0;
     padding: 0;
 }
-
-main {
-    ul,
-    ol {
-        padding-left: 1em;
-
-        li::before {
-            display: inline-block;
-            margin-left: -1em;
-            margin-right: .5em;
-            color: currentColor;
-        }
-    }
-    ul {
-        > li::before {
-            content: "•";
-        }
-    }
-
-    ol {
-        counter-reset: li;
-        > li::before {
-            counter-increment: li;
-            content: counter(li);
-        }
-    }
-}

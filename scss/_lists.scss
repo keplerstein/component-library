@@ -1,0 +1,46 @@
+@mixin lists($marginLeft: 1em, $marginBottom: .5em) {
+    $marginLeft: if(unitless($marginLeft), $marginLeft * 1px, $marginLeft);
+    $marginBottom: if(unitless($marginBottom), $marginBottom * 1px, $marginBottom);
+
+    ul,
+    ol {
+        margin-left: $marginLeft;
+        margin-bottom: $marginBottom;
+
+        li {
+            &::before {
+                display: inline-block;
+                margin-left: -#{$marginLeft};
+                width: $marginLeft;
+                color: currentColor;
+            }
+
+            > ol:first-child,
+            > ul:first-child {
+                margin-top: #{$marginBottom / 2};
+            }
+
+            > ol:last-child,
+            > ul:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    ul {
+        > li {
+            &::before {
+                content: "\2022";
+            }
+        }
+    }
+
+    ol {
+        counter-reset: li;
+        > li {
+            &::before {
+                counter-increment: li;
+                content: counter(li);
+            }
+        }
+    }
+}

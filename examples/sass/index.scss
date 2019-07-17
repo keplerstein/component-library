@@ -1,10 +1,15 @@
 @import "../../scss/base";
 @import "../../scss/button";
+@import "../../scss/lists";
 body {
     padding: 20px;
 }
 
 .row {
+    margin-bottom: 20px;
+}
+
+h1 {
     margin-bottom: 20px;
 }
 
@@ -22,6 +27,7 @@ body {
     );
 }
 
+// Breakpoints tests
 .breakpoints {
     background-color: yellow; // Mobile
 
@@ -44,4 +50,15 @@ body {
     @include for-big-desktop-up {
         background-color: blue;
     }
+}
+
+// Lists test
+
+.lists {
+    @include lists();
+
+    @include lists(
+        $marginLeft: 30,
+        $marginBottom: 20px
+    );
 }
