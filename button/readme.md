@@ -9,7 +9,7 @@ Renders a basic button style in SCSS. Can be applied to both 'a' and 'button' el
 Import the SCSS for the component:
 
 ```scss
-@import "keplerstein-component-library/sample-button/index.scss";
+@import "keplerstein-component-library/button/index.scss";
 ```
 
 Use the SCSS mixin in your styles:
@@ -23,7 +23,7 @@ Use the SCSS mixin in your styles:
     // all the options specified
     @include button(
         $backgroundColor: orange, 
-        $color: black;
+        $color: black,
         $hoverBackgroundColor: red, 
         $padding: 10px 50px
     );
