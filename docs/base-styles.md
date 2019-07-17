@@ -2,7 +2,7 @@
 
 ## Reset & normalization
 
-Blabla.
+We provide some basic resets (normalize scss) with an added layer of our own reset scss.
 
 ## Breakpoints
 
