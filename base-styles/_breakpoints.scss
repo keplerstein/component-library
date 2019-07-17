@@ -1,63 +1,30 @@
 // https://medium.freecodecamp.com/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862#.adpufyefv
-
-@mixin for-tablet-portait-down {
-    @include mq($viewport-small, false) {
-        @content;
-    }
-}
-
 @mixin for-tablet-portrait-up {
-    @include mq($viewport-small) {
+    @media (min-width: 600px) {
         @content;
     }
 }
 
 @mixin for-tablet-landscape-up {
-    @include mq($viewport-medium) {
-        @content;
-    }
-}
-
-@mixin for-tablet-landscape-down {
-    @include mq($viewport-medium, false) {
+    @media (min-width: 900px) {
         @content;
     }
 }
 
 @mixin for-desktop-up {
-    @include mq($viewport-large) {
-        @content;
-    }
-}
-
-@mixin for-desktop-down {
-    @include mq($viewport-large, false) {
+    @media (min-width: 1200px) {
         @content;
     }
 }
 
 @mixin for-medium-desktop-up {
-    @include mq($viewport-xlarge) {
+    @media (min-width: 1600px) {
         @content;
     }
 }
 
 @mixin for-big-desktop-up {
-    @include mq($viewport-xxlarge) {
+    @media (min-width: 1800px) {
         @content;
-    }
-}
-
-/* Default media query setup */
-
-@mixin mq($size, $up: true) {
-    @if $up {
-        @media (min-width: u($size)) {
-            @content;
-        }
-    } @else {
-        @media (max-width: u($size - 1px)) {
-            @content;
-        }
     }
 }
