@@ -27,15 +27,16 @@ Make sure your SSH key is added to Github, and Yarn knows about it. (run cli com
 
 Every project starts with some base styles applied (normalize-scss, reset, breakpoints etc.)
 
-[More info]('./docs/base-styles')
+[More info](./docs/base-styles.md)
 
 ```scss
 @import "keplerstein-component-library/scss/base";
 ```
 
 ## Components
-* [Button](./docs/button)
-* [Padding container](./docs/padding-container)
+* [Button](./docs/button.md)
+* [Container](./docs/container.md)
+* [Lists](./docs/lists.md)
 
 ## Coding guidelines
 
