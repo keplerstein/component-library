@@ -100,38 +100,48 @@ h1 {
     }
 }
 
+.container-row2 {
+    background: palegoldenrod;
+    .breakout {
+        background: palevioletred;
+    }
+    .rest{
+        background: paleturquoise;
+    } 
+}
+
 .card-grid-container {
     background: #efefef;
-.card-grid {
-    @include cardGrid(
-        $defaultRowGutter: 10px,
-        $breakpoints: (
-            "for-tablet-portrait-up": (
-                "columns": 2,
-                "rowGutter": 20px,
-                "columnGutter": 20px
-            ),
-            "for-tablet-landscape-up": (
-                "columns": 3,
-                "rowGutter": 30px,
-                "columnGutter": 30px
-            ),
-            "for-desktop-up": (
-                "columns": 4,
-                "rowGutter": 40px,
-                "columnGutter": 40px
-            ),
-            "for-big-desktop-up": (
-                "columns": 5,
-                "rowGutter": 40px,
-                "columnGutter": 40px
+    .card-grid {
+        @include cardGrid(
+            $defaultRowGutter: 10px,
+            $breakpoints: (
+                "for-tablet-portrait-up": (
+                    "columns": 2,
+                    "rowGutter": 20px,
+                    "columnGutter": 20px
+                ),
+                "for-tablet-landscape-up": (
+                    "columns": 3,
+                    "rowGutter": 30px,
+                    "columnGutter": 30px
+                ),
+                "for-desktop-up": (
+                    "columns": 4,
+                    "rowGutter": 40px,
+                    "columnGutter": 40px
+                ),
+                "for-big-desktop-up": (
+                    "columns": 5,
+                    "rowGutter": 40px,
+                    "columnGutter": 40px
+                )
             )
-        )
-    );
+        );
 
-    .card {
-        background: palegoldenrod;
-        padding: 20px;
+        .card {
+            background: palegoldenrod;
+            padding: 20px;
+        }
     }
-}
 }
