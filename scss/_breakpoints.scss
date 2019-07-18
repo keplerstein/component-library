@@ -1,30 +1,45 @@
 // https://medium.freecodecamp.com/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862#.adpufyefv
+
+$breakpointMap: (
+    "for-tablet-portrait-up": "600px",
+    "for-tablet-landscape-up": "900px",
+    "for-desktop-up": "1200px",
+    "for-medium-desktop-up": "1600px",
+    "for-big-desktop-up": "1800px"
+);
+
 @mixin for-tablet-portrait-up {
-    @media (min-width: 600px) {
+    @media (min-width: map-get($breakpointMap, "for-tablet-portrait-up")) {
         @content;
     }
 }
 
 @mixin for-tablet-landscape-up {
-    @media (min-width: 900px) {
+    @media (min-width: map-get($breakpointMap, "for-tablet-landscape-up")) {
         @content;
     }
 }
 
 @mixin for-desktop-up {
-    @media (min-width: 1200px) {
+    @media (min-width: map-get($breakpointMap, "for-desktop-up")) {
         @content;
     }
 }
 
 @mixin for-medium-desktop-up {
-    @media (min-width: 1600px) {
+    @media (min-width: map-get($breakpointMap, "for-medium-desktop-up")) {
         @content;
     }
 }
 
 @mixin for-big-desktop-up {
-    @media (min-width: 1800px) {
+    @media (min-width: map-get($breakpointMap, "for-big-desktop-up")) {
+        @content;
+    }
+}
+
+@mixin mediaquery($key) {
+    @media (min-width: map-get($breakpointMap, $key)) {
         @content;
     }
 }

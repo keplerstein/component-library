@@ -1,0 +1,66 @@
+$defaultCardGridBreakpointMap: (
+    "for-tablet-portrait-up": (
+        "columns": 2,
+        "rowGutter": 20px,
+        "columnGutter": 20px
+    ),
+    "for-tablet-landscape-up": (
+        "columns": 3,
+        "rowGutter": 30px,
+        "columnGutter": 30px
+    ),
+    "for-desktop-up": (
+        "columns": 4,
+        "rowGutter": 40px,
+        "columnGutter": 40px
+    ),
+    "for-big-desktop-up": (
+        "columns": 5,
+        "rowGutter": 40px,
+        "columnGutter": 40px
+    )
+);
+@mixin cardGrid($breakpoints: $defaultCardGridBreakpointMap, $defaultRowGutter: 10px) {
+    display: flex;
+    @each $key, $subMap in $breakpoints {
+        $columnGutter: map-get($subMap, "columnGutter");
+        @include mediaquery($key) {
+            $cg: $columnGutter / 2;
+            margin-left: -$cg;
+            margin-right: -$cg;
+        }
+    }
+    flex-wrap: wrap;
+    & > * {
+        width: 100%;
+        margin-top: $defaultRowGutter;
+        // we define a mediaquery per breakpoint, and use the columns defined in it
+        @each $key, $subMap in $breakpoints {
+            $columns: map-get($subMap, "columns");
+            $rowGutter: map-get($subMap, "rowGutter");
+            $columnGutter: map-get($subMap, "columnGutter");
+            $cg: $columnGutter / 2;
+            @include mediaquery($key) {
+                margin: $rowGutter $cg 0 $cg;
+                $p: percentage(1 / $columns);
+                width: calc(#{$p} - 2 * #{$cg});
+            }
+        }
+
+        // https://keithclark.co.uk/articles/targeting-first-and-last-rows-in-css-grid-layouts/?source=post_page---------------------------
+
+        &:first-child {
+            // remove bottom margin, only for mobile
+            margin-top: 0;
+        }
+        @each $key, $subMap in $breakpoints {
+            // remove bottom margins in other breakpoints
+            $columns: map-get($subMap, "columns");
+            @include mediaquery($key) {
+                &:nth-child(-n + #{$columns}) {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+}
