@@ -3,7 +3,9 @@
     $color: white,
     $hoverBackgroundColor: null,
     $hoverColor: null,
-    $padding: 10px 20px // fontSize,
+    $padding: 10px 20px, // fontSize,
+    $fontSize: inherit,
+    $fontStack: inherit
 ) {
     &:hover {
         // background
@@ -19,6 +21,8 @@
         }
     }
     cursor: pointer;
+    font-family: $fontStack;
+    font-size: $fontSize;
     color: $color;
     display: inline-flex;
     justify-content: center;
@@ -28,6 +32,7 @@
     text-decoration: none;
     user-select: none;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
     svg {
         display: block;
         width: 20px;

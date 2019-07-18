@@ -2,6 +2,10 @@
 @import "../../scss/button";
 @import "../../scss/lists";
 @import "../../scss/container";
+html {
+    font-family: sans-serif;
+}
+
 body {
     padding: 20px;
 }
@@ -22,12 +26,16 @@ h1 {
 }
 
 .button2 {
+    $stack: Montserrat, sans-serif;
+
     @include button(
-        $color: purlple,
-        $hoverColor: palevioletred,
-        $backgroundColor: orange,
-        $hoverBackgroundColor: red,
-        $padding: 10px 50px
+        $backgroundColor: green,
+        $color: white,
+        $hoverBackgroundColor: orange,
+        $hoverColor: black,
+        $padding: 10px 20px,
+        $fontSize: 28px,
+        $fontStack: $stack
     );
 }
 
