@@ -29,7 +29,8 @@ Use the SCSS mixin in your styles:
         $hoverColor: black,
         $padding: 10px 20px,
         $fontSize: 28px,
-        $fontStack: $stack
+        $fontStack: $stack,
+        $textTransform: uppercase
     );
 }
 ```

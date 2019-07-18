@@ -5,7 +5,8 @@
     $hoverColor: null,
     $padding: 10px 20px, // fontSize,
     $fontSize: inherit,
-    $fontStack: inherit
+    $fontStack: inherit,
+    $textTransform: null
 ) {
     &:hover {
         // background
@@ -19,6 +20,10 @@
         @if $hoverColor {
             color: $hoverColor;
         }
+    }
+
+    @if $textTransform {
+        text-transform: $textTransform;
     }
     cursor: pointer;
     font-family: $fontStack;
