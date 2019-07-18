@@ -1,60 +1,92 @@
 @import "breakpoints";
 
-@mixin containerRow($maxWidth: 1600px, $gutterMobile: 20px, $gutterMedium: 20px, $gutterBig: 40px) {
-    padding-left: $gutterMobile;
-    padding-right: $gutterMobile;
-    $w: $maxWidth / 2;
-    @include for-tablet-portrait-up {
-        padding-left: 0;
-        padding-right: 0;
-        display: grid;
-        position: relative;
-        grid-template-columns:
-            minmax($gutterMedium, 1fr)
-            minmax(0, $w)
-            minmax(0, $w)
-            minmax($gutterMedium, 1fr);
-    }
-    @include for-tablet-landscape-up {
-        grid-template-columns:
-            minmax($gutterBig, 1fr)
-            minmax(0, $w)
-            minmax(0, $w)
-            minmax($gutterBig, 1fr);
+@mixin containerRow(
+    $maxWidth: 1600px,
+    $columns: 2,
+    $gutterMobile: 20px,
+    $gutterMedium: 20px,
+    $gutterBig: 40px
+) {
+    // Check if columns are even
+    @if ($columns % 2 == 0) {
+        padding-left: $gutterMobile;
+        padding-right: $gutterMobile;
+        $w: $maxWidth / $columns;
+        @include for-tablet-portrait-up {
+            padding-left: 0;
+            padding-right: 0;
+            display: grid;
+            position: relative;
+            grid-template-columns:
+                minmax($gutterMedium, 1fr)
+                repeat($columns, minmax(0, $w))
+                minmax($gutterMedium, 1fr);
+        }
+        @include for-tablet-landscape-up {
+            grid-template-columns:
+                minmax($gutterBig, 1fr)
+                repeat($columns, minmax(0, $w))
+                minmax($gutterBig, 1fr);
+        }
+    } @else {
+        @error "Column count '#{$columns}' is not an even number ";
     }
 }
 
-@mixin containerColumn() {
-    @include for-tablet-portrait-up {
-        grid-column: 2 / span 2;
-        grid-row: 1;
+@mixin containerColumn($columns: 2) {
+    @if ($columns % 2 == 0) {
+        @include for-tablet-portrait-up {
+            grid-column: 2 / span $columns;
+            grid-row: 1;
+        }
+    } @else {
+        @error "Column count '#{$columns}' is not an even number ";
     }
 }
-@mixin containerColumnRight() {
-    grid-column: 3 / span 1;
-    grid-row: 1;
-}
-@mixin containerColumnLeft() {
-    grid-column: 2 / span 1;
-    grid-row: 1;
-}
-@mixin containerColumnBreakoutLeft($gutterMobile: 20px) {
-    margin-left: -$gutterMobile;
-    margin-right: -$gutterMobile;
-    @include for-tablet-portrait-up {
-        margin-left: 0;
-        margin-right: 0;
-        grid-column: 1 / span 2;
+
+@mixin containerColumnRight($columns: 2) {
+    @if ($columns % 2 == 0) {
+        grid-column: #{($columns / 2) + 2} / span #{($columns / 2)};
         grid-row: 1;
+    } @else {
+        @error "Column count '#{$columns}' is not an even number ";
     }
 }
-@mixin containerColumnBreakoutRight($gutterMobile: 20px) {
-    margin-left: -$gutterMobile;
-    margin-right: -$gutterMobile;
-    @include for-tablet-portrait-up {
-        margin-left: 0;
-        margin-right: 0;
-        grid-column: 3 / span 2;
+
+@mixin containerColumnLeft($columns: 2) {
+    @if ($columns % 2 == 0) {
+        grid-column: 2 / span #{($columns / 2)};
         grid-row: 1;
+    } @else {
+        @error "Column count '#{$columns}' is not an even number ";
+    }
+}
+
+@mixin containerColumnBreakoutLeft($columns: 2, $gutterMobile: 20px) {
+    @if ($columns % 2 == 0) {
+        margin-left: -$gutterMobile;
+        margin-right: -$gutterMobile;
+        @include for-tablet-portrait-up {
+            margin-left: 0;
+            margin-right: 0;
+            grid-column: 1 / span #{($columns / 2) + 1};
+            grid-row: 1;
+        }
+    } @else {
+        @error "Column count '#{$columns}' is not an even number ";
+    }
+}
+@mixin containerColumnBreakoutRight($columns: 2, $gutterMobile: 20px) {
+    @if ($columns % 2 == 0) {
+        margin-left: -$gutterMobile;
+        margin-right: -$gutterMobile;
+        @include for-tablet-portrait-up {
+            margin-left: 0;
+            margin-right: 0;
+            grid-column: #{($columns / 2) + 2} / span #{($columns / 2) + 1};
+            grid-row: 1;
+        }
+    } @else {
+        @error "Column count '#{$columns}' is not an even number ";
     }
 }
