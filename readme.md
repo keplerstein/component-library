@@ -8,12 +8,14 @@ The goal is that this repository is an npm installable library. Included in the 
 
 ## Table of contents
 
--   [Reusable components for Keplerstein](#Reusable-components-for-Keplerstein)
-    -   [Introduction](#Introduction)
-    -   [Installation](#Installation)
-    -   [Base styles](#Base-styles)
-    -   [Components](#Components)
-    -   [Coding guidelines](#Coding-guidelines)
+- [Reusable components for Keplerstein](#Reusable-components-for-Keplerstein)
+  - [Introduction](#Introduction)
+  - [Table of contents](#Table-of-contents)
+  - [Installation](#Installation)
+  - [Base styles](#Base-styles)
+  - [Installation](#Installation-1)
+  - [Components](#Components)
+  - [Coding guidelines](#Coding-guidelines)
 
 ## Installation
 
@@ -58,7 +60,8 @@ Every project starts with some base styles applied:
 
 -   [Button](./docs/button.md)
 -   [Container](./docs/container.md)
--   [Lists](./docs/lists.md)
+-   [Lists (ul>li)](./docs/lists.md)
+-   [Card grid](./docs/card-grid.md)
 
 ## Coding guidelines
 

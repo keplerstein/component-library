@@ -2,6 +2,7 @@
 @import "../../scss/button";
 @import "../../scss/lists";
 @import "../../scss/container";
+@import "../../scss/card-grid";
 html {
     font-family: sans-serif;
 }
@@ -70,10 +71,7 @@ h1 {
 .lists {
     @include lists();
 
-    @include lists(
-        $marginLeft: 30,
-        $marginBottom: 20px
-    );
+    @include lists($marginLeft: 30, $marginBottom: 20px);
 }
 
 .container-row {
@@ -101,4 +99,40 @@ h1 {
         background: palevioletred;
         @include containerColumnLeft($columns: 12);
     }
+}
+
+.card-grid-container {
+    background: #efefef;
+.card-grid {
+    @include cardGrid(
+        $defaultRowGutter: 10px,
+        $breakpoints: (
+            "for-tablet-portrait-up": (
+                "columns": 2,
+                "rowGutter": 20px,
+                "columnGutter": 20px
+            ),
+            "for-tablet-landscape-up": (
+                "columns": 3,
+                "rowGutter": 30px,
+                "columnGutter": 30px
+            ),
+            "for-desktop-up": (
+                "columns": 4,
+                "rowGutter": 40px,
+                "columnGutter": 40px
+            ),
+            "for-big-desktop-up": (
+                "columns": 5,
+                "rowGutter": 40px,
+                "columnGutter": 40px
+            )
+        )
+    );
+
+    .card {
+        background: palegoldenrod;
+        padding: 20px;
+    }
+}
 }

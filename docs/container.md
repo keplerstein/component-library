@@ -1,6 +1,6 @@
 # Container
 
-Renders a container based on an Grid. Alternate method to achieve the same as max-width. Different columns are used, to simulate a max-width. Difference, however, is we can easily breakout elements out of the container, both left or right.
+Renders a container based on a Grid. Alternate method to achieve the same as max-width. Different columns are used, to simulate a max-width. Difference, however, is we can easily breakout elements out of the container, both left or right.
 
 [Example](../examples/container.html)
 

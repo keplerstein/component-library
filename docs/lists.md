@@ -1,6 +1,6 @@
 # Lists
 
-This mixin provides default list stylings for 'ol' and 'ul' lists.
+This mixin provides default list stylings for 'ol' and 'ul' lists. To be used in, for example, WYSIWYG editor rendered content.
 
 [Example](../examples/lists.html)
 
@@ -16,7 +16,8 @@ Use the SCSS mixin in your styles:
 
 ```scss
 .my-list {
-    // renders a default list with some sensible defaults applied
+    // Renders all lists within .my-list with the styling applied
+    // (default values used)
     @include lists();
     
     // All options specified. Values can be unitless (defaults to px)
