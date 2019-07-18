@@ -75,28 +75,28 @@ h1 {
 }
 
 .container-row {
-    @include containerRow();
+    @include containerRow($columns: 12, $maxWidth: 1400px);
     .column {
         background: palegoldenrod;
-        @include containerColumn();
+        @include containerColumn($columns: 12);
     }
     .breakout {
         background: palegreen;
-        @include containerColumnBreakoutLeft();
+        @include containerColumnBreakoutLeft($columns: 12);
     }
     .rest {
         background: green;
-        @include containerColumnRight();
+        @include containerColumnRight($columns: 12);
     }
 
     .breakout-right {
         background: paleturquoise;
-        @include containerColumnBreakoutRight();
+        @include containerColumnBreakoutRight($columns: 12);
     }
 
     .rest-left {
         background: palevioletred;
-        @include containerColumnLeft();
+        @include containerColumnLeft($columns: 12);
     }
 }
 
