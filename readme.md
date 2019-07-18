@@ -1,19 +1,22 @@
 # Reusable components for Keplerstein
 
 ## Introduction
+
 Reusable components used in the Keplerstein website projects.
 
 The goal is that this repository is an npm installable library. Included in the default Craft CMS install, but can be updated anytime by a simple npm install.
 
 ## Table of contents
-- [Reusable components for Keplerstein](#Reusable-components-for-Keplerstein)
-  - [Introduction](#Introduction)
-  - [Installation](#Installation)
-  - [Base styles](#Base-styles)
-  - [Components](#Components)
-  - [Coding guidelines](#Coding-guidelines)
+
+-   [Reusable components for Keplerstein](#Reusable-components-for-Keplerstein)
+    -   [Introduction](#Introduction)
+    -   [Installation](#Installation)
+    -   [Base styles](#Base-styles)
+    -   [Components](#Components)
+    -   [Coding guidelines](#Coding-guidelines)
 
 ## Installation
+
 To add this library to a project, install it by the private Github URL
 
 ```console
@@ -37,22 +40,26 @@ $ ssh-add
 ## Base styles
 
 Every project starts with some base styles applied:
-- normalize-scss
-- reset
-- breakpoints
-- ...
+
+-   normalize-scss
+-   reset
+-   breakpoints
+-   ...
 
 [More info](./docs/base-styles.md)
 
-### Installation
+## Installation
+
 ```scss
 @import "keplerstein-component-library/scss/base";
 ```
 
 ## Components
-* [Button](./docs/button.md)
-* [Container](./docs/container.md)
-* [Lists](./docs/lists.md)
+
+-   [Button](./docs/button.md)
+-   [Container](./docs/container.md)
+-   [Lists](./docs/lists.md)
 
 ## Coding guidelines
+
 We try to use the [BEM (Block Element Modifier) naming convention](http://getbem.com/naming/)
