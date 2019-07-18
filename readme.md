@@ -23,7 +23,7 @@ To add this library to a project, install it by the private Github URL
 $ yarn add git+ssh://git@github.com:keplerstein/keplerstein-component-library.git
 ```
 
-Make sure the domain github.com is added to the list of your well known hosts. Just run following command and **answer yes** to save it automatically.
+Make sure the domain github.com is added to the list of your well known hosts. Just run following command and **answer yes** to save it automatically:
 
 [More info](https://stackoverflow.com/questions/13363553/git-error-host-key-verification-failed-when-connecting-to-remote-repository)
 
