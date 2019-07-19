@@ -39,7 +39,11 @@ $breakpointMap: (
 }
 
 @mixin mediaquery($key) {
-    @media (min-width: map-get($breakpointMap, $key)) {
-        @content;
+    @if(map-has-key( $breakpointMap, $key )) {
+        @media (min-width: map-get($breakpointMap, $key)) {
+            @content;
+        }
+    } @else {
+        @error "Breakpoint '#{$key}' doesn't exist";
     }
 }

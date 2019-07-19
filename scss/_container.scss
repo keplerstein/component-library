@@ -1,92 +1,133 @@
 @import "breakpoints";
 
-@mixin containerRow(
+$defaultContainerMap: (
+    "left": (
+        "columnCount": 1,
+        "breakout": false
+    ),
+    "right": (
+        "columnCount": 1,
+        "breakout": false
+    )
+);
+
+@mixin columnContainer(
+    $columnCount: 2,
+    $gutterDefault: 20px,
+    $gutterBreakpointUp: 40px,
     $maxWidth: 1600px,
-    $columns: 2,
-    $gutterMobile: 20px,
-    $gutterMedium: 20px,
-    $gutterBig: 40px
+    $breakpoint: 'for-tablet-landscape-up',
+    $columnMap: $defaultContainerMap
 ) {
-    // Check if columns are even
-    @if ($columns % 2 == 0) {
-        padding-left: $gutterMobile;
-        padding-right: $gutterMobile;
-        $w: $maxWidth / $columns;
-        @include for-tablet-portrait-up {
-            padding-left: 0;
-            padding-right: 0;
+    & {
+        margin-left: $gutterDefault;
+        margin-right: $gutterDefault;
+        @include mediaquery($breakpoint) {
+            $w: $maxWidth / $columnCount;
+            margin-left: 0;
+            margin-right: 0;
             display: grid;
             position: relative;
             grid-template-columns:
-                minmax($gutterMedium, 1fr)
-                repeat($columns, minmax(0, $w))
-                minmax($gutterMedium, 1fr);
+                minmax($gutterBreakpointUp, 1fr)
+                repeat($columnCount, minmax(0, $w))
+                minmax($gutterBreakpointUp, 1fr);
         }
-        @include for-tablet-landscape-up {
+    }
+    
+    $left: map-get($columnMap, "left");
+    $right: map-get($columnMap, "right");
+
+    $spanLeft: 1;
+    $startLeft: 1;
+    
+    @if map-get($left, "breakout") == true {
+        $spanLeft: map-get($left, "columnCount") + 1;
+    } @else {
+        $startLeft: 2;
+        $spanLeft: map-get($left, "columnCount");
+    }
+
+    $spanRight: 1;
+    $startRight: $spanLeft + $startLeft;
+
+    @if map-get($right, "breakout") == true {
+        $spanRight: map-get($right, "columnCount") + 1;
+    } @else {
+        $spanRight: map-get($right, "columnCount");
+    }
+
+    &__left, 
+    &__right {
+        display: block;
+        position: relative;
+    }
+
+    &__left {
+        @if map-get($left, "breakout") == true {
+            margin-left: -$gutterDefault;
+            margin-right: -$gutterDefault;
+        }
+        @include mediaquery($breakpoint) {
+            margin-left: 0;
+            margin-right: 0;
+            grid-column: $startLeft / span $spanLeft;
+            grid-row: 1;
+        }
+    }
+    &__right {
+        @if map-get($right, "breakout") == true {
+            margin-left: -$gutterDefault;
+            margin-right: -$gutterDefault;
+        }
+        @include mediaquery($breakpoint) {
+            margin-left: 0;
+            margin-right: 0;
+            grid-column: $startRight / span $spanRight;
+            grid-row: 1;
+        }
+    }
+}
+
+@mixin container(
+    $gutterDefault: 20px,
+    $gutterBreakpointUp: 40px,
+    $maxWidth: 1600px,
+    $breakpoint: 'for-tablet-landscape-up',
+    $breakout: null
+) {
+    & {
+        @if $breakout {
+            margin-left: 0;
+            margin-right: 0;
+        } @else {
+            margin-left: $gutterDefault;
+            margin-right: $gutterDefault;
+        }
+        @include mediaquery($breakpoint) {
+            margin-left: 0;
+            margin-right: 0;
+            display: grid;
+            position: relative;
             grid-template-columns:
-                minmax($gutterBig, 1fr)
-                repeat($columns, minmax(0, $w))
-                minmax($gutterBig, 1fr);
+                minmax($gutterBreakpointUp, 1fr)
+                minmax(0, $maxWidth)
+                minmax($gutterBreakpointUp, 1fr);
+            & > * {
+                display: block;
+                grid-column: 2 / span 1;
+                @if $breakout {
+                    @if $breakout == "left" {
+                        grid-column: 1 / span 2;
+                    } @else if $breakout == "right" {
+                        grid-column: 2 / span 2;
+                    } @else if $breakout == "both" {
+                        grid-column: 1 / span 3;
+                    } @else {
+                        @error "Breakout '#{$breakout}' doesn't exist";
+                    }
+                }
+            }
         }
-    } @else {
-        @error "Column count '#{$columns}' is not an even number ";
-    }
-}
-
-@mixin containerColumn($columns: 2) {
-    @if ($columns % 2 == 0) {
-        @include for-tablet-portrait-up {
-            grid-column: 2 / span $columns;
-            grid-row: 1;
-        }
-    } @else {
-        @error "Column count '#{$columns}' is not an even number ";
-    }
-}
-
-@mixin containerColumnRight($columns: 2) {
-    @if ($columns % 2 == 0) {
-        grid-column: #{($columns / 2) + 2} / span #{($columns / 2)};
-        grid-row: 1;
-    } @else {
-        @error "Column count '#{$columns}' is not an even number ";
-    }
-}
-
-@mixin containerColumnLeft($columns: 2) {
-    @if ($columns % 2 == 0) {
-        grid-column: 2 / span #{($columns / 2)};
-        grid-row: 1;
-    } @else {
-        @error "Column count '#{$columns}' is not an even number ";
-    }
-}
-
-@mixin containerColumnBreakoutLeft($columns: 2, $gutterMobile: 20px) {
-    @if ($columns % 2 == 0) {
-        margin-left: -$gutterMobile;
-        margin-right: -$gutterMobile;
-        @include for-tablet-portrait-up {
-            margin-left: 0;
-            margin-right: 0;
-            grid-column: 1 / span #{($columns / 2) + 1};
-            grid-row: 1;
-        }
-    } @else {
-        @error "Column count '#{$columns}' is not an even number ";
-    }
-}
-@mixin containerColumnBreakoutRight($columns: 2, $gutterMobile: 20px) {
-    @if ($columns % 2 == 0) {
-        margin-left: -$gutterMobile;
-        margin-right: -$gutterMobile;
-        @include for-tablet-portrait-up {
-            margin-left: 0;
-            margin-right: 0;
-            grid-column: #{($columns / 2) + 2} / span #{($columns / 2) + 1};
-            grid-row: 1;
-        }
-    } @else {
-        @error "Column count '#{$columns}' is not an even number ";
     }
 }

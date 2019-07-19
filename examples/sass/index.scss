@@ -8,7 +8,7 @@ html {
 }
 
 body {
-    padding: 20px;
+    // padding: 20px;
 }
 
 .buttons {
@@ -74,42 +74,6 @@ h1 {
     @include lists($marginLeft: 30, $marginBottom: 20px);
 }
 
-.container-row {
-    @include containerRow($columns: 12, $maxWidth: 1400px);
-    .column {
-        background: palegoldenrod;
-        @include containerColumn($columns: 12);
-    }
-    .breakout {
-        background: palegreen;
-        @include containerColumnBreakoutLeft($columns: 12);
-    }
-    .rest {
-        background: green;
-        @include containerColumnRight($columns: 12);
-    }
-
-    .breakout-right {
-        background: paleturquoise;
-        @include containerColumnBreakoutRight($columns: 12);
-    }
-
-    .rest-left {
-        background: palevioletred;
-        @include containerColumnLeft($columns: 12);
-    }
-}
-
-.container-row2 {
-    background: palegoldenrod;
-    .breakout {
-        background: palevioletred;
-    }
-    .rest{
-        background: paleturquoise;
-    } 
-}
-
 .card-grid-container {
     background: #efefef;
     .card-grid {
@@ -143,5 +107,54 @@ h1 {
             background: palegoldenrod;
             padding: 20px;
         }
+    }
+}
+
+.mycontainer {
+    @include columnContainer(
+        $columnCount: 16,
+        $gutterDefault: 20px,
+        $gutterBreakpointUp: 40px,
+        $maxWidth: 1600px,
+        $breakpoint: 'for-tablet-landscape-up',
+        $columnMap: (
+            "left": (
+                "columnCount": 10,
+                "breakout": false // optional boolean for breaking out
+            ),
+            "right": (
+                "columnCount": 6,
+                "breakout": false // optional boolean for breaking out
+            )
+        ));
+    &__left {
+        background: paleturquoise;
+    }
+    &__right {
+        background: palevioletred;
+    }
+}
+
+.mycontainer2 {
+    @include columnContainer();
+    &__left {
+        background: palevioletred;
+    }
+    &__right {
+        background: paleturquoise;
+    }
+}
+
+
+.mycontainer3 {
+    @include container(
+        $gutterDefault: 20px,
+        $gutterBreakpointUp: 40px,
+        $maxWidth: 1600px,
+        $breakpoint: 'for-tablet-landscape-up',
+        $breakout: null // optional: left, right or both
+    );
+    & > * {
+        background: palevioletred;
     }
 }
