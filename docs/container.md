@@ -19,6 +19,15 @@ Use the SCSS mixins in your styles. Note: these styles are already included in t
 
 The default simple container. One middle column, contained by a max-width.
 
+We always assume the following HTML structure. 
+The columns are always the first and last child in the container. (2 children, no more)
+
+```html
+<div class="container"><!-- apply mixin to .container -->
+    <div class="child">...</div>
+</div>
+```
+
 ```scss
 @include container(
     $gutterDefault: 20px, // the default gutter (and thus used on mobile)
@@ -36,7 +45,7 @@ A more elaborate container type, to split the screen in different columns. With 
 We always assume the following HTML structure. The columns are always the first and last child in the container. (2 children, no more)
 
 ```html
-<div class="container">
+<div class="container"><!-- apply mixin to .container -->
     <div class="child1">...</div>
     <div class="child2">...</div>
 </div>
