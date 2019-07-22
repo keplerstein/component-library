@@ -98,15 +98,15 @@ $defaultContainerMap: (
 ) {
     & {
         @if $breakout {
-            margin-left: 0;
-            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
         } @else {
-            margin-left: $gutterDefault;
-            margin-right: $gutterDefault;
+            padding-left: $gutterDefault;
+            padding-right: $gutterDefault;
         }
         @include mediaquery($breakpoint) {
-            margin-left: 0;
-            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
             display: grid;
             position: relative;
             grid-template-columns:

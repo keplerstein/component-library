@@ -116,7 +116,7 @@ h1 {
         $gutterDefault: 20px,
         $gutterBreakpointUp: 40px,
         $maxWidth: 1600px,
-        $breakpoint: 'for-tablet-landscape-up',
+        $breakpoint: "for-tablet-landscape-up",
         $columnMap: (
             "left": (
                 "columnCount": 10,
@@ -124,9 +124,10 @@ h1 {
             ),
             "right": (
                 "columnCount": 6,
-                "breakout": false // optional boolean for breaking out
+                "breakout": true // optional boolean for breaking out
             )
-        ));
+        )
+    );
     &__left {
         background: paleturquoise;
     }
@@ -136,7 +137,18 @@ h1 {
 }
 
 .mycontainer2 {
-    @include columnContainer();
+    @include columnContainer(
+        $columnMap: (
+            "left": (
+                "columnCount": 1,
+                "breakout": true // optional boolean for breaking out
+            ),
+            "right": (
+                "columnCount": 1,
+                "breakout": false // optional boolean for breaking out
+            )
+        )
+    );
     &__left {
         background: palevioletred;
     }
@@ -145,16 +157,20 @@ h1 {
     }
 }
 
-
 .mycontainer3 {
     @include container(
         $gutterDefault: 20px,
         $gutterBreakpointUp: 40px,
         $maxWidth: 1600px,
-        $breakpoint: 'for-tablet-landscape-up',
+        $breakpoint: "for-tablet-landscape-up",
         $breakout: null // optional: left, right or both
     );
     & > * {
         background: palevioletred;
     }
+}
+
+.mycontainer4 {
+    background: #dedede;
+    @include container();
 }
