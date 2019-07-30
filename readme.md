@@ -16,6 +16,7 @@ The goal is that this repository is an npm installable library. Included in the 
   - [Installation](#installation-1)
   - [Components](#components)
   - [Utilities](#utilities)
+  - [Icons](#icons)
   - [Coding guidelines](#coding-guidelines)
 
 ## Installation
@@ -67,6 +68,11 @@ Every project starts with some base styles applied:
 ## Utilities
 
 Various small mixins for common tasks. [View Utilities](./docs/utilities.md).
+
+## Icons
+
+- [Products (Used in Commerce when adding to the navbar)](./icons/products.svg)
+- [Orders (Used in Commerce when adding to the navbar)](./icons/orders.svg)
 
 ## Coding guidelines
 
