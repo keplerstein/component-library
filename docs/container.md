@@ -31,7 +31,10 @@ The columns are always the first and last child in the container. (2 children, n
 ```scss
 @include container(
     $gutterDefault: 20px, // the default gutter (and thus used on mobile)
-    $gutterBreakpointUp: 40px, // the gutter when viewed on bigger screens (see $breakpoint)
+    $gutterBreakpoints: ( // the gutters when viewed on bigger screens
+        "for-tablet-landscape-up": 50px,
+        "for-desktop-up": 140px
+    )
     $maxWidth: 1600px,
     $breakpoint: 'for-tablet-landscape-up', // the breakpoint when layout switches from mobile to bigger screens
     $breakout: null // can be 'left', 'right' or 'both'
@@ -55,7 +58,10 @@ We always assume the following HTML structure. The columns are always the first 
 @include columnContainer(
     $columnCount: 16, // number of columns to create in the middle section (gutters do not count)
     $gutterDefault: 20px, // the default gutter (and thus used on mobile)
-    $gutterBreakpointUp: 40px, // the gutter when viewed on bigger screens (see $breakpoint)
+    $gutterBreakpoints: ( // the gutters when viewed on bigger screens
+        "for-tablet-landscape-up": 50px,
+        "for-desktop-up": 140px
+    )
     $maxWidth: 1600px,
     $breakpoint: "for-tablet-landscape-up", // the breakpoint when layout switches from mobile to bigger screens
     $columnMap: (

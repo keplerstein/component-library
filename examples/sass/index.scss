@@ -114,7 +114,10 @@ h1 {
     @include columnContainer(
         $columnCount: 16,
         $gutterDefault: 20px,
-        $gutterBreakpointUp: 40px,
+        $gutterBreakpoints: (
+            "for-tablet-landscape-up": 50px,
+            "for-desktop-up": 140px
+        ),
         $maxWidth: 1600px,
         $breakpoint: "for-tablet-landscape-up",
         $columnMap: (
@@ -160,7 +163,10 @@ h1 {
 .mycontainer3 {
     @include container(
         $gutterDefault: 20px,
-        $gutterBreakpointUp: 40px,
+        $gutterBreakpoints: (
+            "for-tablet-landscape-up": 50px,
+            "for-desktop-up": 140px
+        ),
         $maxWidth: 1600px,
         $breakpoint: "for-tablet-landscape-up",
         $breakout: null // optional: left, right or both
