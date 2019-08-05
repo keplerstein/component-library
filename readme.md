@@ -16,6 +16,7 @@ The goal is that this repository is an npm installable library. Included in the 
   - [Installation](#installation-1)
   - [Components](#components)
   - [Utilities](#utilities)
+  - [Snippets](#snippets)
   - [Icons](#icons)
   - [Coding guidelines](#coding-guidelines)
 
@@ -68,6 +69,10 @@ Every project starts with some base styles applied:
 ## Utilities
 
 Various small mixins for common tasks. [View Utilities](./docs/utilities.md).
+
+## Snippets
+
+Various frequently used snippets in our templates. [View snippets](./docs/snippets.md)
 
 ## Icons
 
