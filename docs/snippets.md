@@ -40,3 +40,50 @@ In the following snippet we loop through all forms with the classname `form`. Wh
         });
     });
 ```
+
+## Cookie consent
+
+Add following Twig snippet before the end of your `</head>` tag
+### Twig
+
+```twig
+        {% if not craft.app.config.general.devMode %}
+            {% set privacyUrl = craft.entries.section('privacyPolicy').select('entries.id,uri,content.siteId').one() ?? null %}
+            {% set privacyLabel = "privacy policy"|t %}
+
+            {% if privacyUrl %}
+                {% set privacy = "<a href='%privacyUrl%' rel='nofollow' target='_blank'>%privacyLabel%</a>"
+                    |replace({'%privacyUrl%': url(privacyUrl.uri)})
+                    |replace({'%privacyLabel%': privacyLabel}) %}
+            {% else %}
+                {% set privacy = "<span>%privacyLabel%</span>"|replace({'%privacyLabel%': privacyLabel}) %}
+            {% endif %}
+            
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+            <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+            <script>
+                window.addEventListener("load", function(){
+                    window.cookieconsent.initialise({
+                        "palette": {
+                            "popup": {
+                                "background": "#F6F7F5",
+                                "text": "#272726"
+                            },
+                            "button": {
+                                "background": "#459e10",
+                                "text": "#ffffff"
+                            }
+                        },
+                        "theme": "edgeless",
+                        "position": "bottom-left",
+                        "content": {
+                            "message": "{{ "This website uses cookies. I agree with the %privacy%."|t|replace({'%privacy%': privacy})|raw }}",
+                            "dismiss": "{{ "OK"|t }}",
+                            "link": "",
+                            "href": ""
+                        }
+                    })
+                });
+            </script>
+        {% endif %}
+```
