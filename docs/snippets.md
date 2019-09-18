@@ -87,3 +87,88 @@ Add following Twig snippet before the end of your `</head>` tag
             </script>
         {% endif %}
 ```
+
+## Facebook product feed
+
+```twig
+{% header "Content-Type: application/rss+xml" %}
+{% set products = craft.products.all() %}
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
+    <channel>
+        {% for product in products %}    
+            {% if product.title is defined %}                
+                <item>
+                    <g:id>
+                        {{ product.defaultVariant.sku }}
+                    </g:id>
+                    <g:title>{{ product.title }}</g:title>
+                    <g:description>{{ product.productKind | striptags }}</g:description>
+                    <g:link>{{ product.getUrl() }}</g:link>
+                    <g:image_link>{{ product.productImage.one().getUrl() }}</g:image_link>
+                    <g:brand>Likami</g:brand>
+                    <g:condition>new</g:condition>
+                    {% if product.defaultVariant.hasUnlimitedStock %}
+                        <g:availability>in stock</g:availability>
+                    {% elseif product.defaultVariant.stock > 0 %}
+                        <g:availability>in stock</g:availability>
+                    {% else %}
+                        <g:availability>out of stock</g:availability>
+                    {% endif %}
+                    {% if product.defaultVariant.price != product.defaultVariant.salePrice %}
+                        <g:price>{{ product.defaultVariant.salePrice | number_format(2) }}</g:price>
+                    {% else %}
+                        <g:price>{{ product.defaultVariant.price | number_format(2) }} EUR</g:price>
+                    {% endif %}
+                    <g:google_product_category>469</g:google_product_category>
+                </item>
+            {% endif %}
+        {% endfor %}
+    </channel>
+</rss>
+```
+
+## Google shopping feed
+
+```twig
+{% header "Content-Type: application/rss+xml" %}
+{% set products = craft.products.all() %}
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+     xmlns:admin="http://webns.net/mvcb/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:g="http://base.google.com/ns/1.0">
+    <channel>
+        <title>{{ systemName }}</title>
+        <link>{{ parseEnv(currentSite.baseUrl) }}</link>
+        {% for product in products %}
+            <item>
+                <g:id>
+                    {{ product.defaultVariant.sku }}
+                </g:id>
+                <title>{{ product.title }}</title>
+                <description>{{ product.productKind | striptags }}</description>
+                <link>{{ product.getUrl() }}</link>
+                {% if product.defaultVariant.price != product.defaultVariant.salePrice %}
+                    <g:price>{{ product.defaultVariant.salePrice | number_format(2) }}</g:price>
+                {% else %}
+                    <g:price>{{ product.defaultVariant.price | number_format(2) }} EUR</g:price>
+                {% endif %}
+                <g:condition>new</g:condition>
+                {% if product.defaultVariant.hasUnlimitedStock %}
+                    <g:availability>in stock</g:availability>
+                {% elseif product.defaultVariant.stock > 0 %}
+                    <g:availability>in stock</g:availability>
+                {% else %}
+                    <g:availability>out of stock</g:availability>
+                {% endif %}
+                <g:image_link>{{ product.productImage.one().getUrl() }}</g:image_link>
+                <g:brand>Likami</g:brand>
+            </item>
+        {% endfor %}
+    </channel>
+</rss>
+```
