@@ -3,7 +3,6 @@
     "version": "1.0.0",
     "description": "Reusable components used in the Keplerstein website projects.",
     "main": "index.js",
-    "private": true,
     "directories": {
         "example": "examples"
     },
