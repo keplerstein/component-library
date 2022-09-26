@@ -1,6 +1,6 @@
 {
     "name": "@keplerstein/keplerstein-component-library",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "Reusable components used in the Keplerstein website projects.",
     "main": "index.js",
     "directories": {
