@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @mixin lists($marginLeft: 1em, $marginBottom: .5em) {
     $marginLeft: if(unitless($marginLeft), $marginLeft * 1px, $marginLeft);
     $marginBottom: if(unitless($marginBottom), $marginBottom * 1px, $marginBottom);
@@ -17,7 +19,7 @@
 
             > ol:first-child,
             > ul:first-child {
-                margin-top: #{$marginBottom / 2};
+                margin-top: #{math.div($marginBottom / 2)};
             }
 
             > ol:last-child,

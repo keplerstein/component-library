@@ -1,31 +1,33 @@
+@use "sass:math";
+
 $defaultCardGridBreakpointMap: (
     "for-tablet-portrait-up": (
         "columns": 2,
         "rowGutter": 20px,
-        "columnGutter": 20px
+        "columnGutter": 20px,
     ),
     "for-tablet-landscape-up": (
         "columns": 3,
         "rowGutter": 30px,
-        "columnGutter": 30px
+        "columnGutter": 30px,
     ),
     "for-desktop-up": (
         "columns": 4,
         "rowGutter": 40px,
-        "columnGutter": 40px
+        "columnGutter": 40px,
     ),
     "for-big-desktop-up": (
         "columns": 5,
         "rowGutter": 40px,
-        "columnGutter": 40px
-    )
+        "columnGutter": 40px,
+    ),
 );
 @mixin cardGrid($breakpoints: $defaultCardGridBreakpointMap, $defaultRowGutter: 10px) {
     display: flex;
     @each $key, $subMap in $breakpoints {
         $columnGutter: map-get($subMap, "columnGutter");
         @include mediaquery($key) {
-            $cg: $columnGutter / 2;
+            $cg: math.div($columnGutter / 2);
             margin-left: -$cg;
             margin-right: -$cg;
         }
@@ -39,10 +41,10 @@ $defaultCardGridBreakpointMap: (
             $columns: map-get($subMap, "columns");
             $rowGutter: map-get($subMap, "rowGutter");
             $columnGutter: map-get($subMap, "columnGutter");
-            $cg: $columnGutter / 2;
+            $cg: math.div($columnGutter / 2);
             @include mediaquery($key) {
                 margin: $rowGutter $cg 0 $cg;
-                $p: percentage(1 / $columns);
+                $p: percentage(math.div(1 / $columns));
                 width: calc(#{$p} - 2 * #{$cg});
             }
         }

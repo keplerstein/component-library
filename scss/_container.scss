@@ -1,3 +1,4 @@
+@use "sass:math";
 @import "breakpoints";
 
 $defaultContainerMap: (
@@ -35,7 +36,7 @@ $defaultContainerGutterBreakpointMap: (
         }
         @each $key, $g in $gutterBreakpoints {
             @include mediaquery($key) {
-                $w: $maxWidth / $columnCount;
+                $w: math.div($maxWidth / $columnCount);
                 grid-template-columns:
                     minmax($g, 1fr)
                     repeat($columnCount, minmax(0, $w))
